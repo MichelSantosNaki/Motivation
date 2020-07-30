@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_splash.*
 import micheldev.com.motivation.R
+import micheldev.com.motivation.infra.MotivationConstants
 import micheldev.com.motivation.infra.SecurityPreferences
 
 class SplashActivity : AppCompatActivity(), View.OnClickListener {
@@ -33,7 +34,7 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
     private fun handSave() {
         val name = edttext_name.text.toString()
         if (name != "") {
-            msecurityPreference.storeString("name",name)
+            msecurityPreference.storeString(MotivationConstants.KEY.PERSON_NAME, name)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         } else {
