@@ -6,6 +6,7 @@
     tools:context=".ui.MainActivity"
     >
     <LinearLayout
+        android:id="@+id/linearMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -21,7 +22,7 @@
             android:tint="@color/white"
             />
         <ImageView
-            android:id="@+id/ic_sun"
+            android:id="@+id/ic_morning"
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_weight="1"
@@ -41,6 +42,7 @@
             android:layout_margin="8dp"
             android:tint="@color/white"
 
+
             />
         />
 
@@ -52,6 +54,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
+        android:layout_below="@+id/linearMenu"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:layout_marginTop="32dp"
         />
+
+    <TextView
+        android:id="@+id/txt_phrase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phrase"
+        android:layout_centerHorizontal="true"
+        android:textSize="22sp"
+        android:layout_marginTop="32dp"
+        android:layout_centerVertical="true"
+        />
+    <View
+        android:layout_width="120dp"
+        android:layout_height="3dp"
+        android:layout_below="@+id/txt_phrase"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorAccent"
+        android:layout_marginTop="32dp"/>
+
+    <Button
+        android:id="@+id/btn_newPhrase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_btn_nova_frase"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:padding="22dp"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"/>
 
 </RelativeLayout>

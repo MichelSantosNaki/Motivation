@@ -3,4 +3,5 @@
     <string name="splash_msg_comecar">Vamos começar?</string>
     <string name="qual_seu_nome">Qual seu nome?</string>
     <string name="btn_salvar">Salvar</string>
+    <string name="txt_btn_nova_frase">Nova Frase</string>
 </resources>
