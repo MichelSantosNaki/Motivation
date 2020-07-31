@@ -24,8 +24,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
         msecurityPreference = SecurityPreferences(this)
-        txt_Name.text =
-            msecurityPreference.getString(MotivationConstants.KEY.PERSON_NAME) // atribui ao txt_name o que tem salvo no sharedPreference
+        val name =  msecurityPreference.getString(MotivationConstants.KEY.PERSON_NAME) // atribui ao txt_name o que tem salvo no sharedPreference
+
+        txt_Name.text =("Olá, $name!")
 
         //Lógica de inicialização
         ic_all.setColorFilter(resources.getColor(R.color.colorAccent)) // Colore o iconte all

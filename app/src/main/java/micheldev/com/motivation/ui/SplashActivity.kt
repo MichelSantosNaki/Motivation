@@ -23,6 +23,8 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
         btn_salvar.setOnClickListener(this)
         msecurityPreference = SecurityPreferences(this)
 
+        verifyName()
+
     }
 
     override fun onClick(view: View?) {
@@ -31,12 +33,23 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
+    private fun verifyName(){
+        val name = msecurityPreference.getString(MotivationConstants.KEY.PERSON_NAME)
+        if (name != ""){
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+    }
+
+
     private fun handSave() {
         val name = edttext_name.text.toString()
         if (name != "") {
             msecurityPreference.storeString(MotivationConstants.KEY.PERSON_NAME, name)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
         } else {
             Toast.makeText(this, "Digite seu nome", Toast.LENGTH_SHORT).show()
         }

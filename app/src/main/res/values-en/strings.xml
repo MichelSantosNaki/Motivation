@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Motivation</string>
+    <string name="splash_msg_comecar">Lets\'s get started?</string>
+    <string name="qual_seu_nome">Whats\'s your name?</string>
+    <string name="btn_salvar">Save</string>
+    <string name="txt_btn_nova_frase">Nova Frase</string>
+</resources>
