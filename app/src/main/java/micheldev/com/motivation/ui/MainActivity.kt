@@ -8,17 +8,28 @@ import kotlinx.android.synthetic.main.activity_splash.*
 import micheldev.com.motivation.R
 import micheldev.com.motivation.infra.MotivationConstants
 import micheldev.com.motivation.infra.SecurityPreferences
+import micheldev.com.motivation.repository.Moxk
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var msecurityPreference: SecurityPreferences // apenas instaniando, pois ainda não há context
+    private var mPrhaseFilter : Int = MotivationConstants.PHARSEFILTER.ALL // inicial com o filtro ALL
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // desativar a ActionBar
+        if(supportActionBar!=null)supportActionBar!!.hide()
+
+
         msecurityPreference = SecurityPreferences(this)
         txt_Name.text =
             msecurityPreference.getString(MotivationConstants.KEY.PERSON_NAME) // atribui ao txt_name o que tem salvo no sharedPreference
+
+        //Lógica de inicialização
+        ic_all.setColorFilter(resources.getColor(R.color.colorAccent)) // Colore o iconte all
+        handleNewPhrase() // chama uma frase ao inicializar
 
         btn_newPhrase.setOnClickListener(this) // ativa o click no botão
         ic_all.setOnClickListener(this)
@@ -50,19 +61,24 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (id) {
             R.id.ic_all -> {
                 ic_all.setColorFilter(resources.getColor(R.color.colorAccent))
+                mPrhaseFilter = MotivationConstants.PHARSEFILTER.ALL // atualizando mprhasefilter
             }
             R.id.ic_happy -> {
                 ic_happy.setColorFilter(resources.getColor(R.color.colorAccent))
+                mPrhaseFilter = MotivationConstants.PHARSEFILTER.HAPPY
+
 
             }
             R.id.ic_morning -> {
                 ic_morning.setColorFilter(resources.getColor(R.color.colorAccent))
+                mPrhaseFilter = MotivationConstants.PHARSEFILTER.MORNIG
+
             }
 
         }
     }
 
     private fun handleNewPhrase() {
-
+            txt_phrase.text = Moxk().getPhrase(mPrhaseFilter)
     }
 }
