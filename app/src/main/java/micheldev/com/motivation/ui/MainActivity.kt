@@ -83,3 +83,4 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             txt_phrase.text = Moxk().getPhrase(mPrhaseFilter)
     }
 }
+//teste
